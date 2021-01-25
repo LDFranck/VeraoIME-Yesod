@@ -1,0 +1,31 @@
+name:    projAtividade2
+version: "0.0.0"
+
+dependencies:
+- base
+- yesod-core
+- yesod-static >= 1.6.1.0               # imagem
+- http-conduit >= 2.3.7.4               # auth
+- yesod-auth >= 1.6.10.1                # auth
+- text >= 1.2.4.0                       # tipo de dado Text
+- yesod >= 1.6.1.0                      # necessario para RenderMessage e outros
+- persistent-postgresql >= 2.10.1.2     # banco de dados (PostgreSQL)
+- monad-logger >= 0.3.36                # banco de dados (runStdoutLoggingT)
+- persistent >= 2.10.5.3                # banco de dados (rawSQL)
+
+# The library contains all of our application code. The executable
+# defined below is just a thin wrapper.
+library:
+  source-dirs: src
+
+# Runnable executable for our application
+executables:
+  projAtividade2:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - projAtividade2

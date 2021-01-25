@@ -1,0 +1,66 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8222ba8fa3a1dc3b53aef78a0e13cd839ad33505957a4b76824e38c48440c0c2
+
+name:           projAtividade2
+version:        0.0.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      Application
+      Foundation
+      Handler.Adm.AdmEstado
+      Handler.Adm.AdmEstadoD
+      Handler.Adm.AdmEstadoU
+      Handler.Adm.AdmEstoque
+      Handler.Adm.AdmEstoqueD
+      Handler.Adm.Admin
+      Handler.Adm.AdmVacina
+      Handler.Adm.AdmVacinaD
+      Handler.Adm.AdmVacinaU
+      Handler.DistEstado
+      Handler.Distribuicao
+      Handler.DistVacina
+      Home
+  other-modules:
+      Paths_projAtividade2
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , http-conduit >=2.3.7.4
+    , monad-logger >=0.3.36
+    , persistent >=2.10.5.3
+    , persistent-postgresql >=2.10.1.2
+    , text >=1.2.4.0
+    , yesod >=1.6.1.0
+    , yesod-auth >=1.6.10.1
+    , yesod-core
+    , yesod-static >=1.6.1.0
+  default-language: Haskell2010
+
+executable projAtividade2
+  main-is: Main.hs
+  other-modules:
+      Paths_projAtividade2
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , http-conduit >=2.3.7.4
+    , monad-logger >=0.3.36
+    , persistent >=2.10.5.3
+    , persistent-postgresql >=2.10.1.2
+    , projAtividade2
+    , text >=1.2.4.0
+    , yesod >=1.6.1.0
+    , yesod-auth >=1.6.10.1
+    , yesod-core
+    , yesod-static >=1.6.1.0
+  default-language: Haskell2010

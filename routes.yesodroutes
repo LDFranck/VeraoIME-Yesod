@@ -1,0 +1,21 @@
+/                                           HomeR           GET
+
+/distribuicao                               DistribuicaoR   GET
+!/distribuicao/estado                       DistEstadoR     GET
+!/distribuicao/vacina                       DistVacinaR     GET
+
+/admin                                      AdminR          GET
+
+!/admin/vacina                              AdmVacinaR      GET POST
+!/admin/vacina/update/#VacinaId             AdmVacinaUR     GET POST
+!/admin/vacina/delete/#VacinaId             AdmVacinaDR     GET
+
+!/admin/estado/                             AdmEstadoR      GET POST
+!/admin/estado/update/#EstadoId             AdmEstadoUR     GET POST
+!/admin/estado/delete/#EstadoId             AdmEstadoDR     GET
+
+!/admin/estoque                             AdmEstoqueR   GET POST
+!/admin/estoque/delete/#EstoqueVacEstId     AdmEstoqueDR  GET
+
+/static             StaticR Static getStatic        -- imagem
+/auth               AuthR Auth getAuth              -- auth
