@@ -13,7 +13,7 @@ import Control.Monad.Logger (runStdoutLoggingT)     -- banco de dados (runStdout
 
 import System.Environment (getEnv)                  -- Heroku
 
-connStr = "dbname=postgres host=localhost user=postgres password=123 port=5432"   -- parametros de acesso ao BD
+connStr = "dbname=de18h43fftuf04 host=ec2-52-72-190-41.compute-1.amazonaws.com user=pmoilydyfkesrx password=4d65b2ea374e24dfe70757c65de7bc709f4b86dc8c91e07cc88e083500e5c575 port=5432"   -- parametros de acesso ao BD
 
 main :: IO ()
 main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do     -- banco de dados
