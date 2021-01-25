@@ -21,7 +21,7 @@ main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 
     manager <- newManager tlsManagerSettings        -- auth
     static@(Static settings) <- static "static"     -- imagem
     port <- getEnv "PORT"                           -- porta Heroku
-    warp port (App pool manager static)             -- banco + auth + imagem -> CUIDAR ORDEM (Foundation)
+    warp (read port) (App pool manager static)             -- banco + auth + imagem -> CUIDAR ORDEM (Foundation)
 
 -- runStderrLoggingT = permite debug no console (todas requisicoes ficam visiveis)
 -- withPostgresqlPool = abre uma conexao com o banco de dados do tipo Postgresql
