@@ -11,6 +11,8 @@ import Yesod.Static     -- imagem
 import Database.Persist.Postgresql                  -- banco de dados (PostgreSQL)
 import Control.Monad.Logger (runStdoutLoggingT)     -- banco de dados (runStdoutLoggingT)
 
+import System.Environment (getEnv)                  -- Heroku
+
 connStr = "dbname=postgres host=localhost user=postgres password=123 port=5432"   -- parametros de acesso ao BD
 
 main :: IO ()
@@ -18,7 +20,8 @@ main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 
     runSqlPersistMPool (runMigration migrateAll) pool                               -- banco de dados
     manager <- newManager tlsManagerSettings        -- auth
     static@(Static settings) <- static "static"     -- imagem
-    warp 3000 (App pool manager static)             -- banco + auth + imagem -> CUIDAR ORDEM (Foundation)
+    port <- getEnv "PORT"                           -- porta Heroku
+    warp port (App pool manager static)             -- banco + auth + imagem -> CUIDAR ORDEM (Foundation)
 
 -- runStderrLoggingT = permite debug no console (todas requisicoes ficam visiveis)
 -- withPostgresqlPool = abre uma conexao com o banco de dados do tipo Postgresql
