@@ -23,7 +23,7 @@ getDistEstadoR = do
         setTitle "Rastreador de Vacinas"
         [whamlet|
             <code>
-                <dd> <h2>Estoque de Vacinas dos Estado
+                <dd> <h2>Estoque de Vacinas dos Estados
                 <hr>
 
                 $maybe val <- varId
